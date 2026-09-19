@@ -1,0 +1,16 @@
+{
+  "operation": "generate",
+  "preferences": {
+    "destination": "Jaipur, India",
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-27",
+    "travellers": 99,
+    "totalBudget": -500,
+    "interests": [
+      "Culture",
+      "Food"
+    ],
+    "style": "Relaxed",
+    "requirements": "Keep afternoons relaxed."
+  }
+}

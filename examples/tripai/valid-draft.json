@@ -1,0 +1,80 @@
+{
+  "region": "Rajasthan, India",
+  "tagline": "Dummy itinerary for schema testing",
+  "days": [
+    {
+      "title": "Dummy day 1",
+      "subtitle": "Illustrative visits, not recommendations",
+      "activities": [
+        {
+          "placeId": "dummy-palace",
+          "time": "09:00",
+          "durationMinutes": 90,
+          "description": "Dummy cultural visit.",
+          "cost": 300.0,
+          "category": "Culture",
+          "budgetCategory": "activities"
+        },
+        {
+          "placeId": "dummy-cafe",
+          "time": "12:00",
+          "durationMinutes": 60,
+          "description": "Dummy lunch for two.",
+          "cost": 400.0,
+          "category": "Food",
+          "budgetCategory": "food"
+        }
+      ]
+    },
+    {
+      "title": "Dummy day 2",
+      "subtitle": "Illustrative visits, not recommendations",
+      "activities": [
+        {
+          "placeId": "dummy-palace",
+          "time": "09:00",
+          "durationMinutes": 90,
+          "description": "Dummy cultural visit.",
+          "cost": 300.0,
+          "category": "Culture",
+          "budgetCategory": "activities"
+        },
+        {
+          "placeId": "dummy-cafe",
+          "time": "12:00",
+          "durationMinutes": 60,
+          "description": "Dummy lunch for two.",
+          "cost": 400.0,
+          "category": "Food",
+          "budgetCategory": "food"
+        }
+      ]
+    }
+  ],
+  "fixedCosts": {
+    "accommodation": 3000.0,
+    "transport": 800.0,
+    "miscellaneous": 200.0
+  },
+  "packing": [
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "items": [
+        {
+          "id": "water",
+          "name": "Water bottle",
+          "checked": false
+        },
+        {
+          "id": "charger",
+          "name": "Phone charger",
+          "checked": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "All places, costs and activities are dummy data."
+  ]
+}

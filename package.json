@@ -1,0 +1,29 @@
+{
+  "name": "roam-trip-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "vite build",
+    "start": ".venv\\Scripts\\python.exe -m uvicorn backend.app:app --host 127.0.0.1 --port 8000",
+    "test": ".venv\\Scripts\\python.exe -m pytest tests -q",
+    "test:browser": "playwright test",
+    "probe": ".venv\\Scripts\\python.exe -m backend.probe"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.0",
+    "vite": "^6.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "prettier": "^3.9.8"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

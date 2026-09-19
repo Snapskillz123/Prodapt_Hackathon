@@ -1,0 +1,514 @@
+{
+  "$defs": {
+    "Activity": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "time": {
+          "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+          "title": "Time",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        },
+        "location": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Location",
+          "type": "string"
+        },
+        "cost": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "title": "Cost",
+          "type": "number"
+        },
+        "duration": {
+          "maxLength": 50,
+          "minLength": 1,
+          "title": "Duration",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "Beaches",
+            "Food",
+            "Adventure",
+            "Culture",
+            "Nature",
+            "Shopping",
+            "Nightlife",
+            "Relaxation"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "budgetCategory": {
+          "enum": [
+            "food",
+            "activities"
+          ],
+          "title": "Budgetcategory",
+          "type": "string"
+        },
+        "updated": {
+          "default": false,
+          "title": "Updated",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "time",
+        "title",
+        "description",
+        "location",
+        "cost",
+        "duration",
+        "category",
+        "budgetCategory"
+      ],
+      "title": "Activity",
+      "type": "object"
+    },
+    "BudgetBreakdown": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "enum": [
+            "accommodation",
+            "food",
+            "transport",
+            "activities",
+            "miscellaneous"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "amount": {
+          "minimum": 0,
+          "title": "Amount",
+          "type": "number"
+        },
+        "description": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "category",
+        "amount",
+        "description"
+      ],
+      "title": "BudgetBreakdown",
+      "type": "object"
+    },
+    "BudgetSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "breakdown": {
+          "items": {
+            "$ref": "#/$defs/BudgetBreakdown"
+          },
+          "title": "Breakdown",
+          "type": "array"
+        },
+        "estimatedSpend": {
+          "minimum": 0,
+          "title": "Estimatedspend",
+          "type": "number"
+        },
+        "remaining": {
+          "title": "Remaining",
+          "type": "number"
+        },
+        "withinBudget": {
+          "title": "Withinbudget",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "breakdown",
+        "estimatedSpend",
+        "remaining",
+        "withinBudget"
+      ],
+      "title": "BudgetSummary",
+      "type": "object"
+    },
+    "FixedCosts": {
+      "additionalProperties": false,
+      "properties": {
+        "accommodation": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "title": "Accommodation",
+          "type": "number"
+        },
+        "transport": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "title": "Transport",
+          "type": "number"
+        },
+        "miscellaneous": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "title": "Miscellaneous",
+          "type": "number"
+        }
+      },
+      "required": [
+        "accommodation",
+        "transport",
+        "miscellaneous"
+      ],
+      "title": "FixedCosts",
+      "type": "object"
+    },
+    "ForecastDay": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "high": {
+          "title": "High",
+          "type": "number"
+        },
+        "low": {
+          "title": "Low",
+          "type": "number"
+        },
+        "rain": {
+          "maximum": 100,
+          "minimum": 0,
+          "title": "Rain",
+          "type": "number"
+        }
+      },
+      "required": [
+        "date",
+        "high",
+        "low",
+        "rain"
+      ],
+      "title": "ForecastDay",
+      "type": "object"
+    },
+    "ItineraryDay": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "subtitle": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Subtitle",
+          "type": "string"
+        },
+        "activities": {
+          "items": {
+            "$ref": "#/$defs/Activity"
+          },
+          "maxItems": 6,
+          "minItems": 1,
+          "title": "Activities",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "subtitle",
+        "activities"
+      ],
+      "title": "ItineraryDay",
+      "type": "object"
+    },
+    "PackingCategory": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/PackingItem"
+          },
+          "maxItems": 15,
+          "minItems": 1,
+          "title": "Items",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "items"
+      ],
+      "title": "PackingCategory",
+      "type": "object"
+    },
+    "PackingItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "maxLength": 180,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "checked": {
+          "default": false,
+          "title": "Checked",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "title": "PackingItem",
+      "type": "object"
+    },
+    "Trip": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "region": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Region",
+          "type": "string"
+        },
+        "tagline": {
+          "maxLength": 700,
+          "minLength": 1,
+          "title": "Tagline",
+          "type": "string"
+        },
+        "artwork": {
+          "enum": [
+            "goa",
+            "jaipur",
+            "manali"
+          ],
+          "title": "Artwork",
+          "type": "string"
+        },
+        "preferences": {
+          "$ref": "#/$defs/TripPreferences"
+        },
+        "days": {
+          "items": {
+            "$ref": "#/$defs/ItineraryDay"
+          },
+          "maxItems": 7,
+          "minItems": 2,
+          "title": "Days",
+          "type": "array"
+        },
+        "fixedCosts": {
+          "$ref": "#/$defs/FixedCosts"
+        },
+        "packing": {
+          "items": {
+            "$ref": "#/$defs/PackingCategory"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Packing",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "region",
+        "tagline",
+        "artwork",
+        "preferences",
+        "days",
+        "fixedCosts",
+        "packing"
+      ],
+      "title": "Trip",
+      "type": "object"
+    },
+    "TripPreferences": {
+      "additionalProperties": false,
+      "properties": {
+        "destination": {
+          "maxLength": 100,
+          "minLength": 2,
+          "title": "Destination",
+          "type": "string"
+        },
+        "startDate": {
+          "format": "date",
+          "title": "Startdate",
+          "type": "string"
+        },
+        "endDate": {
+          "format": "date",
+          "title": "Enddate",
+          "type": "string"
+        },
+        "travellers": {
+          "maximum": 12,
+          "minimum": 1,
+          "title": "Travellers",
+          "type": "integer"
+        },
+        "totalBudget": {
+          "maximum": 10000000,
+          "minimum": 0,
+          "multipleOf": 100,
+          "title": "Totalbudget",
+          "type": "number"
+        },
+        "interests": {
+          "items": {
+            "enum": [
+              "Beaches",
+              "Food",
+              "Adventure",
+              "Culture",
+              "Nature",
+              "Shopping",
+              "Nightlife",
+              "Relaxation"
+            ],
+            "type": "string"
+          },
+          "maxItems": 8,
+          "minItems": 1,
+          "title": "Interests",
+          "type": "array"
+        },
+        "style": {
+          "enum": [
+            "Relaxed",
+            "Balanced",
+            "Packed"
+          ],
+          "title": "Style",
+          "type": "string"
+        },
+        "requirements": {
+          "default": "",
+          "maxLength": 1500,
+          "title": "Requirements",
+          "type": "string"
+        }
+      },
+      "required": [
+        "destination",
+        "startDate",
+        "endDate",
+        "travellers",
+        "totalBudget",
+        "interests",
+        "style"
+      ],
+      "title": "TripPreferences",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "trip": {
+      "$ref": "#/$defs/Trip"
+    },
+    "budget": {
+      "$ref": "#/$defs/BudgetSummary"
+    },
+    "weather": {
+      "items": {
+        "$ref": "#/$defs/ForecastDay"
+      },
+      "title": "Weather",
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Warnings",
+      "type": "array"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    },
+    "trace": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Trace",
+      "type": "array"
+    }
+  },
+  "required": [
+    "trip",
+    "budget",
+    "weather",
+    "warnings",
+    "notes",
+    "trace"
+  ],
+  "title": "TripResult",
+  "type": "object"
+}

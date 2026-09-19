@@ -1,0 +1,106 @@
+{
+  "id": "dummy-trip-jaipur",
+  "region": "Rajasthan, India",
+  "tagline": "Dummy itinerary for schema testing",
+  "artwork": "jaipur",
+  "preferences": {
+    "destination": "Jaipur, India",
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-27",
+    "travellers": 2,
+    "totalBudget": 10000.0,
+    "interests": [
+      "Culture",
+      "Food"
+    ],
+    "style": "Relaxed",
+    "requirements": "Keep afternoons relaxed."
+  },
+  "days": [
+    {
+      "id": "dummy-day-1",
+      "title": "Dummy day 1",
+      "subtitle": "Illustrative visits, not recommendations",
+      "activities": [
+        {
+          "id": "dummy-activity-1-1",
+          "time": "09:00",
+          "title": "Dummy Palace",
+          "description": "Dummy cultural visit.",
+          "location": "Fictional example in Jaipur",
+          "cost": 300.0,
+          "duration": "90 min",
+          "category": "Culture",
+          "budgetCategory": "activities",
+          "updated": false
+        },
+        {
+          "id": "dummy-activity-1-2",
+          "time": "12:00",
+          "title": "Dummy Cafe",
+          "description": "Dummy lunch for two.",
+          "location": "Fictional example in Jaipur",
+          "cost": 400.0,
+          "duration": "60 min",
+          "category": "Food",
+          "budgetCategory": "food",
+          "updated": false
+        }
+      ]
+    },
+    {
+      "id": "dummy-day-2",
+      "title": "Dummy day 2",
+      "subtitle": "Illustrative visits, not recommendations",
+      "activities": [
+        {
+          "id": "dummy-activity-2-1",
+          "time": "09:00",
+          "title": "Dummy Palace",
+          "description": "Dummy cultural visit.",
+          "location": "Fictional example in Jaipur",
+          "cost": 300.0,
+          "duration": "90 min",
+          "category": "Culture",
+          "budgetCategory": "activities",
+          "updated": false
+        },
+        {
+          "id": "dummy-activity-2-2",
+          "time": "12:00",
+          "title": "Dummy Cafe",
+          "description": "Dummy lunch for two.",
+          "location": "Fictional example in Jaipur",
+          "cost": 400.0,
+          "duration": "60 min",
+          "category": "Food",
+          "budgetCategory": "food",
+          "updated": false
+        }
+      ]
+    }
+  ],
+  "fixedCosts": {
+    "accommodation": 3000.0,
+    "transport": 800.0,
+    "miscellaneous": 200.0
+  },
+  "packing": [
+    {
+      "id": "essentials",
+      "name": "Essentials",
+      "items": [
+        {
+          "id": "water",
+          "name": "Water bottle",
+          "checked": false
+        },
+        {
+          "id": "charger",
+          "name": "Phone charger",
+          "checked": false
+        }
+      ]
+    }
+  ]
+}

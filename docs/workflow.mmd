@@ -1,0 +1,28 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	extract(extract)
+	clarify(clarify)
+	retrieve(retrieve)
+	weather(weather)
+	generate(generate)
+	validate(validate)
+	finalize(finalize)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> extract;
+	extract -.-> clarify;
+	extract -.-> retrieve;
+	generate --> validate;
+	retrieve --> weather;
+	validate -.-> finalize;
+	validate -.-> generate;
+	weather --> generate;
+	clarify --> __end__;
+	finalize --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
